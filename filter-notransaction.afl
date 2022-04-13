@@ -1,0 +1,12 @@
+// Loc co phieu khong co giao dich trong 20 phien gan nhat
+
+CondVolume = (Sum(V, 20) == 0);
+
+Filter = CondVolume;
+
+AddColumn(Ref(V, -4), "T-4 V", 1);
+AddColumn(Ref(V, -4), "T-3 V", 1);
+AddColumn(Ref(V, -4), "T-2 V", 1);
+AddColumn(Ref(V, -4), "T-1 V", 1);
+AddColumn(V, "T-0 V", 1);
+AddColumn(C, "Price", 1.20);
