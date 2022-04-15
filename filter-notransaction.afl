@@ -1,12 +1,15 @@
-// Loc co phieu khong co giao dich trong 20 phien gan nhat
+// Loc co phieu khong giao dich trong vong %period% phien
 
-CondVolume = (Sum(V, 20) == 0);
-
-Filter = CondVolume;
+Period = 20;
+CondVolume = Sum(V, Period) == 0;
+Filter = Sum(V, Period) == 0;
 
 AddColumn(Ref(V, -4), "T-4 V", 1);
-AddColumn(Ref(V, -4), "T-3 V", 1);
-AddColumn(Ref(V, -4), "T-2 V", 1);
-AddColumn(Ref(V, -4), "T-1 V", 1);
-AddColumn(V, "T-0 V", 1);
-AddColumn(C, "Price", 1.20);
+AddColumn(Ref(V, -3), "T-3 V", 1);
+AddColumn(Ref(V, -2), "T-2 V", 1);
+AddColumn(Ref(V, -1), "T-1 V", 1);
+AddColumn(V, "T0 Vol", 1);
+AddColumn(SUM(V, Period), "SUM Volume", 1);
+AddColumn(C, "Price", 1.2);
+AddTextColumn(FullName(), "FullName");
+AddTextColumn(SectorID(1), "Sector");
