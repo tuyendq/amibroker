@@ -1,0 +1,15 @@
+// Set timeframe inWeekly
+
+TimeFrameSet(inWeekly);
+MA20 = MA(C, 20);
+MA50 = MA(C, 50);
+// Buy = MA20 > C;
+
+Buy = Cross(MA20, MA50);
+Sell = Cross(MA50, MA20);
+Filter = Buy OR Sell;
+TimeFrameRestore();
+
+AddColumn(C, "Close", 1.2);
+AddColumn(MA20, "MA20", 1.2);
+AddColumn(MA50, "MA50", 1.2);
